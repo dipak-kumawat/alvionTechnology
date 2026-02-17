@@ -1,25 +1,27 @@
-export interface UserProfile {
-  id: string;
-  fullName: string;
+export interface User {
+  id: number;
+  name: string;
   email: string;
-  age: string;
-  city: string;
-  state: string;
-  country: string;
+  phone: string;
+  website: string;
 }
 
-export interface DraftProfile {
-  fullName?: string;
-  email?: string;
-  age?: string;
-  city?: string;
-  state?: string;
-  country?: string;
+export interface UsersState {
+  list: User[];
+}
+
+export interface UIState {
+  loading: boolean;
+  error: string | null;
+}
+
+export interface RootState {
+  users: UsersState;
+  ui: UIState;
 }
 
 export type RootStackParamList = {
-  Home: undefined;
-  Page1: { profileId?: string };
-  Page2: undefined;
-  Page3: undefined;
+  UserList: undefined;
+  UserDetail: { userId: number };
+  AddUser: undefined;
 };
